@@ -9,6 +9,7 @@ export default class App extends Component {
         <Text style={{fontFamily:"IRANSansMobile_Light"}}>سلام</Text> 
         <Text style={{fontFamily:"IRANSansMobile_Light"}}>سلام</Text>
         
+
       </View>
     );
   }
