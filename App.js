@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { styles, Text, View } from 'react-native';
+import { Button, Text, View } from 'react-native';
 
 class TextComponent extends Component {
   render() {
@@ -12,11 +12,19 @@ class TextComponent extends Component {
 }
 
 export default class App extends Component {
+  constructor(props){
+    super(props);
+    this.state={title:'Salam'}
+  }
   render() {
     return (
       <View>
         <TextComponent name="saeed" />
         <TextComponent name="reza" />
+        <Text>
+          {this.state.title}
+        </Text>
+        <Button title="Click" onPress={()=>this.setState({title:''})}></Button>
       </View>
     );
   }
