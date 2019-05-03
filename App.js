@@ -17,37 +17,14 @@ import {
 
 
 export default class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      modalVisible: false,
-    }
-  }
-  ShowModalFunction(visible) {
-    this.setState({ modalVisible: visible });
-  }
 
   render() {
     return (
       <View style={styles.container}>
-        <Modal
-          transparent={false}
-          animationType="slide"
-          visible={this.state.modalVisible}
-          onRequestClose={() => this.state.ShowModalFunction(!this.state.modalVisible)}
-
-        >
-          <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', }}>
-            <View style={styles.ModalInsideView}>
-              <Text style={styles.TextStyle}>
-                Text component with a sample text
-            </Text>
-              <Button title='بستن Modal' onPress={() => this.ShowModalFunction(!this.state.modalVisible)}></Button>
-
-            </View>
-          </View>
-        </Modal>
-        <Button title="نمایش Modal" onPress={() => this.ShowModalFunction(true)} />
+        <Image 
+        source={{uri:'http://reactapp.ir/wp-content/uploads/happy_mothersDay.gif'}}
+        style={{ width:315, height: 383 , }}
+        />
       </View>
 
     );
