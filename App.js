@@ -12,19 +12,36 @@ import {
   ActivityIndicator,
   Slider,
   Modal,
+  Share
 
 } from 'react-native';
 
 
 export default class App extends Component {
-
+  constructor(props) {
+    super(props);
+    this.state = {
+      TextInputValue: ''
+    }
+  }
+  ShareMessage = () => {
+    Share.share({
+      message: this.state.TextInputValue.toString()
+    }).then(result => console.log(result))
+      .catch(console.log(errorMessage))
+  }
   render() {
     return (
       <View style={styles.container}>
-        <Image 
-        // source={{uri:'http://reactapp.ir/wp-content/uploads/happy_mothersDay.gif'}}
-        source={require('./image/happy_mothersDay.gif')}
-        style={{ width:315, height: 383 , }}
+        <TextInput
+          underlineColorAndroid="transparent"
+          style={styles.TextInputStyle}
+          onChangeText={(value) => this.setState({ TextInputValue:value })}
+        />
+        <Button
+          title='اشتراک گذاری متن'
+          color='blue'
+          onPress={this.ShareMessage}
         />
       </View>
 
@@ -38,6 +55,16 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
+  TextInputStyle: {
+    borderWidth: 1,
+    borderColor: '#009688',
+    width: '100%',
+    height: 40,
+    borderRadius: 10,
+    marginBottom: 10,
+    textAlign: 'center',
+
+  },
   ModalInsideView: {
     justifyContent: 'center',
     alignItems: 'center',
@@ -49,10 +76,10 @@ const styles = StyleSheet.create({
     borderColor: '#fff'
   },
   TextStyle: {
-    fontSize:24,
-    marginBottom:20,
-    color:'#fff',
-    padding:20,
+    fontSize: 24,
+    marginBottom: 20,
+    color: '#fff',
+    padding: 20,
     textAlign: 'center'
   },
   WebViewStyle: {
