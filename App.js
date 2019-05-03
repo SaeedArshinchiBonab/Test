@@ -22,7 +22,8 @@ export default class App extends Component {
     return (
       <View style={styles.container}>
         <Image 
-        source={{uri:'http://reactapp.ir/wp-content/uploads/happy_mothersDay.gif'}}
+        // source={{uri:'http://reactapp.ir/wp-content/uploads/happy_mothersDay.gif'}}
+        source={require('./image/happy_mothersDay.gif')}
         style={{ width:315, height: 383 , }}
         />
       </View>
